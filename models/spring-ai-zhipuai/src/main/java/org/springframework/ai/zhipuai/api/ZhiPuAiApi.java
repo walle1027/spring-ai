@@ -523,7 +523,8 @@ public class ZhiPuAiApi {
 			@JsonProperty("tool_choice") Object toolChoice,
 			@JsonProperty("user") String user,
 			@JsonProperty("request_id") String requestId,
-			@JsonProperty("do_sample") Boolean doSample) {
+			@JsonProperty("do_sample") Boolean doSample,
+			@JsonProperty("thinking") Thinking thinking) {
 
 		/**
 		 * Shortcut constructor for a chat completion request with the given messages and model.
@@ -534,7 +535,7 @@ public class ZhiPuAiApi {
 		 */
 		public ChatCompletionRequest(List<ChatCompletionMessage> messages, String model, Double temperature) {
 			this(messages, model, null,  null, false, temperature, null,
-					null, null, null, null, null);
+					null, null, null, null, null,null);
 		}
 
 		/**
@@ -548,7 +549,7 @@ public class ZhiPuAiApi {
 		 */
 		public ChatCompletionRequest(List<ChatCompletionMessage> messages, String model, Double temperature, boolean stream) {
 			this(messages, model, null,  null,  stream, temperature, null,
-					null, null, null, null, null);
+					null, null, null, null, null,null);
 		}
 
 		/**
@@ -563,7 +564,7 @@ public class ZhiPuAiApi {
 		public ChatCompletionRequest(List<ChatCompletionMessage> messages, String model,
 				List<FunctionTool> tools, Object toolChoice) {
 			this(messages, model, null, null,  false, 0.8, null,
-					tools, toolChoice, null, null, null);
+					tools, toolChoice, null, null, null,null);
 		}
 
 		/**
@@ -576,7 +577,7 @@ public class ZhiPuAiApi {
 		 */
 		public ChatCompletionRequest(List<ChatCompletionMessage> messages, Boolean stream) {
 			this(messages, null, null,  null,  stream, null, null,
-					null, null, null, null, null);
+					null, null, null, null, null,null);
 		}
 
 		/**
@@ -607,6 +608,14 @@ public class ZhiPuAiApi {
 		@JsonInclude(Include.NON_NULL)
 		public record ResponseFormat(
 				@JsonProperty("type") String type) {
+		}
+
+		@JsonInclude(Include.NON_NULL)
+		public record Thinking(ThinkingType type){}
+
+
+		public enum ThinkingType{
+			enabled,disabled
 		}
 	}
 

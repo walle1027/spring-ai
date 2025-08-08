@@ -57,7 +57,7 @@ public class ZhiPuAiApiIT {
 		ChatCompletionMessage chatCompletionMessage = new ChatCompletionMessage("Hello world", Role.USER);
 		ResponseEntity<ChatCompletion> response = this.zhiPuAiApi
 			.chatCompletionEntity(new ChatCompletionRequest(List.of(chatCompletionMessage), "glm-3-turbo", 1024, null,
-					false, 0.95, 0.7, null, null, null, "test_request_id", false));
+					false, 0.95, 0.7, null, null, null, "test_request_id", false, null));
 
 		assertThat(response).isNotNull();
 		assertThat(response.getBody()).isNotNull();

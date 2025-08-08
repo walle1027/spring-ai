@@ -106,6 +106,10 @@ public class ZhiPuAiChatOptions implements ToolCallingChatOptions {
 	 * The default value is true.
 	 */
 	private @JsonProperty("do_sample") Boolean doSample;
+	/**
+	 * Only GLM-4.5 and above models support this parameter configuration. Controls whether the thinking chain feature is enabled in the large model.
+	 */
+	private @JsonProperty("thinking") ZhiPuAiApi.ChatCompletionRequest.Thinking thinking;
 
 	/**
 	 * Collection of {@link ToolCallback}s to be used for tool calling in the chat completion requests.
@@ -572,6 +576,11 @@ public class ZhiPuAiChatOptions implements ToolCallingChatOptions {
 
 		public Builder doSample(Boolean doSample) {
 			this.options.doSample = doSample;
+			return this;
+		}
+
+		public Builder thinking(ZhiPuAiApi.ChatCompletionRequest.Thinking thinking) {
+			this.options.thinking = thinking;
 			return this;
 		}
 
