@@ -49,7 +49,7 @@
 		<system>Github Actions</system>
 		<url>https://github.com/spring-projects/spring-ai/actions</url>
 	</ciManagement>
-	<distributionManagement>
+	<!--<distributionManagement>
 		<snapshotRepository>
 			<id>spring-snapshots</id>
 			<url>https://repo.spring.io/libs-snapshot-local</url>
@@ -61,6 +61,15 @@
 			<id>repo.spring.io</id>
 			<name>Spring Release Repository</name>
 			<url>https://repo.spring.io/libs-release-local</url>
+		</repository>
+	</distributionManagement>-->
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>framework</id>
+			<name>Framework Repository</name>
+			<url>https://repo.taimei.com/repository/architecture/</url>
+			<layout>default</layout>
 		</repository>
 	</distributionManagement>
 	<licenses>
